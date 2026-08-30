@@ -505,3 +505,212 @@ footer .logo span {
     text-align: center;
   }
 }
+/* ============================= */
+/* SMOOTH ANIMATION SYSTEM */
+/* ============================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  animation: pageLoad 0.8s ease both;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hero animation */
+
+.hero-text {
+  animation: heroText 1s ease-out both;
+}
+
+@keyframes heroText {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.phone {
+  animation:
+    phoneFloat 4s ease-in-out infinite,
+    phoneEnter 1.2s ease-out both;
+}
+
+@keyframes phoneEnter {
+  from {
+    opacity: 0;
+    transform: translateX(60px) rotate(8deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(4deg);
+  }
+}
+
+@keyframes phoneFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(4deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(4deg);
+  }
+}
+
+/* Section reveal */
+
+section {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards */
+
+.card,
+.service {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.card:hover,
+.service:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Product image */
+
+.product-image {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.card:hover .product-image {
+  transform: scale(1.04);
+  box-shadow: 0 15px 35px rgba(23, 105, 255, 0.15);
+}
+
+/* Buttons */
+
+.btn,
+.product-btn,
+.whatsapp,
+.card button {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn:hover,
+.product-btn:hover,
+.whatsapp:hover,
+.card button:hover {
+  transform: translateY(-4px);
+}
+
+/* Navigation */
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #1769ff, #ff3f9f);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Logo animation */
+
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.04);
+}
+
+/* Mobile menu */
+
+.mobile-menu {
+  animation: menuOpen 0.3s ease both;
+}
+
+@keyframes menuOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact box */
+
+.contact-box {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(23, 105, 255, 0.12);
+}
+
+/* Footer */
+
+footer {
+  transition: background 0.3s ease;
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
